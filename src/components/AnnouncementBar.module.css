@@ -1,0 +1,17 @@
+.bar {
+  background: var(--forest);
+  padding: 10px 16px;
+  text-align: center;
+}
+
+.link {
+  color: var(--cream);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

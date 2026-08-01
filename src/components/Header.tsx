@@ -7,11 +7,8 @@ import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
 
 const navLinks = [
-  { href: "/quiz", label: "Clean Cart Quiz" },
-  { href: "/which-guide", label: "Which Guide?" },
-  { href: "/free-guide", label: "5-Second Shopper" },
-  { href: "/eat-real-guide", label: "Eat Real, Live Better" },
-  { href: "/the-perfect-list", label: "The Perfect List" },
+  { href: "/quiz", label: "Cart Cost Quiz" },
+  { href: "/the-perfect-list", label: "Shop" },
   { href: "/consultations", label: "Consultations" },
   { href: "/about", label: "About" },
 ];

@@ -1,0 +1,47 @@
+.flow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stepWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 200px;
+  gap: 12px;
+}
+
+.circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  color: var(--forest);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .flow { flex-direction: column; align-items: center; }
+  .arrow { transform: rotate(90deg); }
+}

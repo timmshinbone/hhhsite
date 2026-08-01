@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import PlaceholderImage from "@/components/PlaceholderImage";
+import StepFlow from "@/components/StepFlow";
 import heroImg from "../../public/images/main_home_lifestyle.jpeg";
-import fssImg from "../../public/images/web_mockups/Main Page TFSS.png";
-import erlbImg from "../../public/images/web_mockups/Main Page ERLB.png";
 import tpglImg from "../../public/images/web_mockups/Main Page TPGL Option 1.png";
-import coupleImg from "../../public/images/handt_couple_photo.jpeg";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -34,114 +32,17 @@ export const metadata: Metadata = {
   },
 };
 
-const beliefs = [
-  {
-    icon: "ph-bowl-food",
-    accent: "a-forest",
-    title: "Food should nourish you, not confuse you!",
-    description:
-      "Ingredient labels are straightforward, but the actual ingredients? Not always. We made a list of the most common Ultra Processed Ingredients you'll find in everyday foods, explain what they do in simple terms, and uncover what products you'll find them in.",
-  },
-  {
-    icon: "ph-scales",
-    accent: "a-sky",
-    title: "Balance is everything!",
-    description:
-      "We've been on the 80/20 diet for the last 6 years, and we feel great! 80% of the time, we eat fresh and wholesome foods. 20% of the time, we're more relaxed and indulge a little. Less restrictive diets result in long-term success.",
-  },
-  {
-    icon: "ph-shopping-cart-simple",
-    accent: "a-blush",
-    title: "Healthy eating starts at the grocery store!",
-    description:
-      "You can't run before you learn to walk, and the same goes with eating healthy. Before you cook, you need to organize and plan your grocery shop. With our Perfect Grocery List, we make it easy to plan your meals and move more efficiently through the store.",
-  },
+const groceryIncludes = [
+  "4 blank, beautifully designed Perfect Grocery Lists (print again and again, every time you need to go to the grocery store)",
+  "4 blank Perfect Meal Menus (coordinating designs, because we all love a matchy-matchy!)",
+  "14 of our favorite healthy, delicious, inexpensive recipes to get you started on our Perfect System",
+  "1 Done For You Perfect Menu and Perfect Grocery List, using the ingredients in the provided recipes",
 ];
 
-const eatRealFeatures = [
-  {
-    icon: "ph-scales",
-    label: "Balance what you eat",
-    description: "Use the 80/20 method to eat healthy, wholesome food, but also eat foods that you love!",
-  },
-  {
-    icon: "ph-magnifying-glass",
-    label: "Spot UPFs easily",
-    description: "learn what Ultra Processed Foods actually are, and the easiest ways to spot them!",
-  },
-  {
-    icon: "ph-article",
-    label: "Read ingredient labels like a pro",
-  },
-  {
-    icon: "ph-money",
-    label: "Save money!",
-    description: "Learn the real financial advantages of from-scratch cooking over convenience cooking",
-  },
-  {
-    icon: "ph-hand-heart",
-    label: "Find new recipes",
-    description: "We've included some of our favorite healthy recipes from across the internet, so you can start cooking healthy today!",
-  },
-];
-
-type BulletItem = string | { prefix: string; bold: string; text: string };
-
-function renderBullet(b: BulletItem) {
-  if (typeof b === 'string') return b;
-  return (
-    <span>
-      {b.prefix}
-      <b>{b.bold}</b>
-      {b.text}
-    </span>
-  );
-}
-
-const groceryFeatures: {
-  icon: string;
-  label: string;
-  description?: string;
-  bullets?: BulletItem[];
-}[] = [
-  {
-    icon: "ph-map-trifold",
-    label: "Templates and instructions for The Perfect Grocery List",
-    bullets: [
-      "+ 4 beautifully simple, blank grocery lists",
-      "+ 4 Blank weekly breakfast, lunch, and dinner menus to help you plan your meals ahead of time",
-      "+ Built-for-you system to plan meals so you can easily choose the best value products and save money!",
-    ],
-  },
-  {
-    icon: "ph-list-magnifying-glass",
-    label: "Behind the scenes",
-    bullets: [
-      "+ A look at how grocery stores try to get you to buy more of the stuff you don't need.",
-      "+ Grocery stores use secret tactics to get you to buy Ultra Processed Foods. Have you fallen for them?!",
-    ],
-  },
-  {
-    icon: "ph-jar-label",
-    label: 'A deep dive into why some "health" foods are actually Ultra Processed',
-  },
-  {
-    icon: "ph-info",
-    label: "Shopping tips and tricks from a pro",
-    description: "become a more efficient and conscientious shopper!",
-  },
-  {
-    icon: "ph-chef-hat",
-    label: "14 of our favorite recipes",
-    description: "get started with healthy cooking and eating this week!",
-    bullets: [
-      { prefix: "+ ", bold: "BONUS: ", text: "A done for you grocery list and menu for a week, containing all the ingredients you'll need from these recipes, so you can try this system out right away!" },
-    ],
-  },
-  {
-    icon: "ph-list-heart",
-    label: "A list of our recommended kitchen staples and common food substitutions",
-  },
+const groceryBonuses = [
+  "We give you a behind the scenes tour of what makes groceries so expensive, and why grocery stores are designed to be confusing!",
+  "We walk you through our exact method of choosing healthy recipes, and clean food, so you can be confident in making the perfect list for your health and budget",
+  "5 more FREE bonuses that will make eating healthier easier, and will help save you more money",
 ];
 
 const youtubeVideos = [
@@ -165,37 +66,56 @@ const youtubeVideos = [
 export default function Home() {
   return (
     <>
+      {/* ============ DARK BANNER (top of page, above hero) ============ */}
+      <section className={styles.topBanner}>
+        <div className="wrap">
+          <h2 className={styles.topBannerHeading}>
+            If you&apos;re spending over an hour in the grocery store, always forgetting one item, and spending way too much, you need a new system.
+          </h2>
+          <p>
+            Take our 3 minute quiz to see just how much you&apos;re overspending at the grocery store
+          </p>
+          <p className={styles.topBannerGift}>
+            (and receive a free gift when you finish the quiz)
+          </p>
+          <Link href="/quiz" className="btn btn-primary">
+            Cart Cost Quiz
+          </Link>
+        </div>
+      </section>
+
       {/* ============ HERO ============ */}
       <section className={styles.hero} id="top">
         <div className={`wrap ${styles.heroGrid}`}>
           <div>
-            <span className="eyebrow">Healthy Homemade Habits</span>
             <h1 style={{ marginTop: "22px" }}>
-              Helping You Start Better Habits,
-              <br />
-              One Grocery Trip At A Time.
-              <br />
-              {/* <span className="accent">80/20.</span> */}
+              Hey! We&apos;re Hana and Timm, and we love grocery shopping!
             </h1>
             <p className={styles.sub}>
-              Hey! We&apos;re Hana and Timm, the husband and wife team behind Healthy Homemade Habits! We love helping people like you cut Ultra Processed Foods out of your diet, and we do it without making you give up everything you love! Want to find out how? Check out the links below!
+              If you did a double take, we&apos;re used to it. Grocery shopping is the worst, right?
             </p>
-            <div className={styles.heroCta}>
-              <Link href="/free-guide" className="btn btn-primary">
-                Get the Free Guide!
-              </Link>
-              <Link href="/eat-real-guide" className="btn btn-primary">
-                Eat Real, Live Better
-              </Link>
-              <Link href="/quiz" className="btn btn-outline">
-                Clean Cart Quiz
-              </Link>
-              <Link href="/the-perfect-list" className="btn btn-outline">
-                The Perfect Grocery List
-              </Link>
+            <p className={styles.sub}>
+              We used to think so, but 6 years ago, we made one simple switch in how we organized ourselves, and it changed the way we shopped forever. Here&apos;s the secret: it all starts with making the right grocery list.
+            </p>
+            <p className={styles.sub}>
+              Now we save hours of time, days worth of energy, and hundreds of dollars a year, and we actually have fun too!
+            </p>
+            <p className={styles.sub}>
+              If that sounds like something you need, click the button below to get our exact grocery shopping formula that took us from stressed to saving!
+            </p>
+            <div className={styles.heroCta} style={{ justifyContent: "center" }}>
+              <a
+                href="https://checkout.mailerlite.com/checkout/32176"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                I want to save time, energy, and money!
+              </a>
             </div>
           </div>
           <div className={styles.heroMedia}>
+            {/* Picture of Hana & Timm — keep existing image, stays to the right */}
             <div className={styles.heroImgWrap}>
               <Image
                 src={heroImg}
@@ -209,167 +129,142 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ TRUST BAR ============ */}
-      <section className={styles.trust}>
-        <div className={`wrap ${styles.trustInner}`}>
-          <span className={styles.trustItem}>
-            Decoding UPFs
-          </span>
-          <span className={styles.trustItem}>
-            80/20 Lifestyle
-          </span>
-          <span className={styles.trustItem}>Efficient Grocery Shopping</span>
-        </div>
-      </section>
-
-      {/* ============ WHAT WE BELIEVE ============ */}
-      <section className="section believe">
+      {/* ============ WHY YOU SHOULD TRUST US ============ */}
+      <section className="section line">
         <div className="wrap">
           <div className="head-center">
-            <span className="eyebrow">What we believe</span>
-            <h2>Eating Healthy Should Be Easy</h2>
+            <h2>Why You Should Trust Us</h2>
+            <p className="lead">
+              At the start of the 2020 lock downs, we knew we had to get in and out of the store quickly, so we built a list that would keep us on track. We didn&apos;t realize it would do so much more than that. It&apos;s 6 years later, and we haven&apos;t looked back!
+            </p>
+            <p>
+              <strong>We used the layout of the store as our guide, and from that, The Perfect Grocery List was created.</strong>
+            </p>
+            <p>
+              <strong>Deceptively simple, but surprisingly smart.</strong>
+            </p>
           </div>
-          <div className="kgrid cols-3">
-            {beliefs.map((belief) => (
-              <div key={belief.title} className={`kcard ${belief.accent}`}>
-                <i className={`ph ${belief.icon} kic`} />
-                <h3>{belief.title}</h3>
-                <p>{belief.description}</p>
-              </div>
-            ))}
+          <ul className={styles.trustList}>
+            <li>Items on the list are grouped by aisle rather than by recipe, so you can focus on one area of the store at a time. No more wasted time running the length of the store over and over again, and forgetting that one important item.</li>
+            <li>Plan your weekly meals ahead of time, and list your ingredients in aisle order, so there&apos;s no chance of impulse buys or going over budget.</li>
+            <li>The aisle categories are listed by the flow of the store, so you can move quickly through each section, shaving minutes off each trip. (Those minutes add up to hours saved each year!)</li>
+          </ul>
+          <p className={styles.trustCatch}>
+            <strong>The catch? There is none.</strong> You don&apos;t need anything else to save time and money at the grocery store, except for the Perfect Meal Menu, which is included in this PDF.
+          </p>
+          <div style={{ textAlign: "center", marginTop: "32px" }}>
+            <a
+              href="https://checkout.mailerlite.com/checkout/32176"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              Teach me the perfect system!
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ============ FREE RESOURCE ============ */}
-      <section className="section line" id="freebie">
+      {/* ============ HOW IT WORKS ============ */}
+      <section className="section line">
         <div className="wrap">
-          <div className={`frame ${styles.freebieGrid}`}>
-            <div className={styles.freebieCover}>
-              {/* <PlaceholderImage
-                variant="rose"
-                icon="ph-book-open"
-                label="cover — “Eat Real, Live Better”"
-              /> */}
-              <div className={styles.productImgWrap}>
-                <Image
-                  src={fssImg}
-                  alt="five second shopper promotional image"
-                  fill
-                  style={{ objectFit: "cover" }}
-                  priority
-                />
-              </div>
-            </div>
-            <div>
-              <span className="eyebrow">Free PDF</span>
-              <h2>Want to cut out Ultra Processed Foods, but don&apos;t know where to start? Let us help you!</h2>
-              <p>
-                We&apos;ve made an easy to read list of all the common Ultra Processed Ingredients you&apos;ll encounter, so you can easily identify them in your favorite grocery store foods. They&apos;re organized alphabetically, so they&apos;re easy to locate, and color coded so you can quickly scan for “Fine to Eat”, “Eat in Moderation”, and “Best to Avoid”. Plus, we included our go-to formula for deciding whether or not a product is worth it to consume. Best of all, it&apos;s completely free!
-              </p>
-              <a
-                href="https://checkout.mailerlite.com/checkout/32173"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-primary"
-              >
-                Send me the free guide
-                <i className="ph ph-arrow-square-out" />
-              </a>
-              <p className="fineprint">
-                <i className="ph ph-lock-simple" />
-                <small>When you download The 5-Second Shopper, you&apos;re agreeing to signing up for our email list. We email once a week, with no obligation to purchase anything. Unsubscribe at any time.</small>
-              </p>
-            </div>
+          <StepFlow
+            steps={[
+              {
+                number: 1,
+                label: "Stressed — using a scattered list and wasting time, energy, and hundreds of dollars",
+              },
+              {
+                number: 2,
+                label: "Start using The Perfect Grocery List and Perfect Meal Menu",
+              },
+              {
+                number: 3,
+                label: "Shopping becomes easy, enjoyable, and now you're actually saving hundreds of dollars",
+              },
+            ]}
+          />
+          <p className="lead" style={{ textAlign: "center", marginTop: "32px" }}>
+            We built a system that takes all the guesswork out of grocery shopping, so you can get in and out in under an hour and save hundreds of dollars*. All you have to do is follow our simple step-by-step method!
+          </p>
+          <p className="fineprint" style={{ textAlign: "center" }}>*hundreds of dollars a year</p>
+          <div style={{ textAlign: "center", marginTop: "24px" }}>
+            <a
+              href="https://checkout.mailerlite.com/checkout/32176"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              I&apos;m ready to learn the easy steps
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ============ SM PAID PRODUCT ============ */}
-      <section className="section line" id="product">
-        <div className={`wrap ${styles.productGrid}`}>
-          <div className={styles.productCover}>
-            <div className={styles.productImgWrap}>
-                <Image
-                  src={erlbImg}
-                  alt="eat real live better snapshot example"
-                  fill
-                  style={{ objectFit: "cover" }}
-                  priority
-                />
-              </div>
-          </div>
-          <div>
-            <span className="eyebrow">Eat Real, Live Better</span>
-            <h2>Tired of traditional dieting, and seeing no results? Our approach is different.</h2>
-            <p className={styles.lead}>
-              "To eat or not to eat, that is the (UPF) question."
-              Now that you know what common Ultra Processed ingredients are lurking in your favorite foods, are you ready to take the next step in cutting them out of your diet? If it sounds daunting, we make it easy for you! <span><b>Eat Real, Live Better: How to Begin Eating Real Food Without Giving Up Everything You Love </b></span>goes more in depth on why Ultra Processed Foods exist, why the grocery stores push them, and how to safeguard yourself against them with the 80/20 eating method. If you&apos;ve been wanting to eat healthier but need a little extra guidance, look no further than this PDF!
+      {/* ============ PRODUCTS TEASER ============ */}
+      <section className="section line" id="products">
+        <div className="wrap">
+          <div className="head-center">
+            <span className="eyebrow">Our Products</span>
+            <h2>Everything you need to shop smarter and eat better</h2>
+            <p className="lead">
+              From a free UPF ingredient guide to our complete grocery shopping system, we&apos;ve built tools for every step of your journey.
             </p>
-            <div className={styles.featureList}>
-              {eatRealFeatures.map((f) => (
-                <div key={f.label} className={styles.f}>
-                  <i className={`ph ${f.icon}`} />
-                  <span>
-                    <b>{f.label}</b>
-                    {f.description && ` - ${f.description}`}
-                  </span>
-                </div>
-              ))}
+          </div>
+          <div className={styles.productTeaser}>
+            <div className={styles.teaserCard}>
+              <span className="eyebrow">Free</span>
+              <h3>The 5-Second Shopper</h3>
+              <p>A color-coded guide to the most common Ultra Processed Ingredients — so you can spot them at a glance.</p>
             </div>
-            <div className={styles.priceRow}>
-              <span className={styles.price}>$17</span>
-              <span className={styles.was}>Take the first step to healthy eating!</span>
+            <div className={styles.teaserCard}>
+              <span className="eyebrow">$17</span>
+              <h3>Eat Real, Live Better</h3>
+              <p>A deep dive into the 80/20 eating method, retail psychology, and how to start eating real food without giving up everything you love.</p>
             </div>
-            <Link href="/eat-real-guide" className="btn btn-primary">
-              Buy Eat Real, Live Better
+            <div className={styles.teaserCard}>
+              <span className="eyebrow">$47</span>
+              <h3>The Perfect Grocery List</h3>
+              <p>Our complete grocery shopping system — list templates, meal planners, 14 recipes, and the secrets to getting in and out in under an hour.</p>
+            </div>
+          </div>
+          <div style={{ textAlign: "center", marginTop: "36px" }}>
+            <Link href="/products" className="btn btn-outline">
+              View all our products
             </Link>
-            <p className="fineprint">
-              <i className="ph ph-watch" />
-              Instant download. Start reading today.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* ============ LG PAID PRODUCT ============ */}
-      <section className="section line" id="product">
+      {/* ============ WHAT YOU'LL GET (TPGL) ============ */}
+      <section className="section line">
         <div className={`wrap ${styles.productGrid}`}>
           <div>
             <span className="eyebrow">The Perfect Grocery List</span>
-            <h2>Tired of spending hours at the grocery store, and still always forgetting one thing?</h2>
+            <h2>What You&apos;ll Get</h2>
             <p className={styles.lead}>
-              We all have to grocery shop, so why not make the experience more enjoyable? Timm and I have developed a guide to make your shopping trips quicker, easier, and actually fun! This guide helps you shop smarter, eat healthier, and create better habits one trip at a time!
+              You don&apos;t need to be good at organizing. Heck, you don&apos;t even need to like it! We&apos;ve done all the work for you, and we teach you how to continue using our system, step-by-easy-step!
             </p>
-            <div className={styles.featureList}>
-              {groceryFeatures.map((f) => (
-                <div key={f.label} className={styles.f}>
-                  <i className={`ph ${f.icon}`} />
-                  <span>
-                    <b>{f.label}</b>
-                    {f.description && ` - ${f.description}`}
-                    {f.bullets && f.bullets.length > 0 && (
-                      <ul>
-                        {f.bullets.map((b, i) => (
-                          <li key={i}>{renderBullet(b)}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </span>
-                </div>
+            <p><strong>What you&apos;ll get in this PDF:</strong></p>
+            <ul className={styles.featureList}>
+              {groceryIncludes.map((item) => (
+                <li key={item}>{item}</li>
               ))}
-            </div>
-            <div className={styles.priceRow}>
-              <span className={styles.price}>$47</span>
-              <span className={styles.was}>Become a smarter shopper today!</span>
-            </div>
-            <Link href="/the-perfect-list" className="btn btn-primary">
-              Get The Perfect List
-            </Link>
-            <p className="fineprint">
-              <i className="ph ph-hourglass-medium" />
-              Instant download. Start shopping smarter today!
-            </p>
+            </ul>
+            <p style={{ marginTop: "16px" }}><strong>Plus:</strong></p>
+            <ul className={styles.featureList}>
+              {groceryBonuses.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <a
+              href="https://checkout.mailerlite.com/checkout/32176"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              I need that!
+            </a>
           </div>
           <div className={styles.productCover}>
             <div className={styles.productImgWrap}>
@@ -385,30 +280,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ ABOUT ============ */}
-      <section className="section line" id="about">
-        <div className={`wrap ${styles.aboutGrid}`}>
-          <div className={styles.aboutMedia}>
-            <div className={styles.coupleImgWrap}>
-              <Image
-                src={coupleImg}
-                alt="Hana and Timm"
-                fill
-                style={{ objectFit: "cover" }}
-              />
+      {/* ============ SAVINGS SOCIAL PROOF ============ */}
+      <section className="section line">
+        <div className="wrap">
+          <div className="frame cta-center">
+            <h2>
+              In the past 6 years, we&apos;ve saved an estimated $2,500 per year in groceries using this list. Now you can too!
+            </h2>
+            <div style={{ marginTop: "24px" }}>
+              <a
+                href="https://checkout.mailerlite.com/checkout/32176"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                Whoa, I want to save that much!
+              </a>
             </div>
-          </div>
-          <div>
-            <span className="eyebrow">Our Story</span>
-            <h2>We&apos;re Hana &amp; Timm.</h2>
-            <p>
-              We&apos;re a couple of enthusiastic homecooks, big-time coffee drinkers, lovers of cooking competition shows, and armchair retail analysts. In 2020, we made the decision to get serious about our health, cut Ultra Processed Foods out of our diet, and streamline our grocery shopping so we could spend more time doing the things we love, like cooking together! 
-            </p>
-            <p>We&apos;re so excited to share what we&apos;ve learned with you!</p>
-            <p className={styles.sig}>- Hana &amp; Timm</p>
-            <a href="/about" className="linkarrow">
-              Read our full story <i className="ph ph-arrow-right" />
-            </a>
           </div>
         </div>
       </section>
@@ -452,16 +340,26 @@ export default function Home() {
       <section className="section line">
         <div className="wrap">
           <div className="frame cta-center">
-            <span className="eyebrow">One better choice</span>
             <h3 style={{ marginTop: "18px" }}>
-              Better choices lead to healthy habits.<br/> Healthy habits lead to a better life.
+              Ready for the best shopping trip of your life?
             </h3>
-            <p className="lead" style={{ margin: "22px 0 36px" }}>
-              Download The 5-Second Shopper to start your healthy habits today!
+            <p className="lead" style={{ margin: "22px 0" }}>
+              You don&apos;t need another expensive organization course, another meal prepping tutorial, or another YouTube budget guru showing you how they save on corndogs at Walmart.
             </p>
-            <Link href="/free-guide" className="btn btn-primary">
-              Get the Free Guide!
-            </Link>
+            <p className="lead" style={{ margin: "0 0 22px" }}>
+              What you need is a simple, easy to follow grocery list that saves you time, energy, and money, every single trip.
+            </p>
+            <p style={{ marginBottom: "32px" }}>
+              Click the button below to get saving at the grocery store today!
+            </p>
+            <a
+              href="https://checkout.mailerlite.com/checkout/32176"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              You&apos;ve convinced me! I&apos;m ready to start saving!
+            </a>
           </div>
         </div>
       </section>

@@ -25,11 +25,9 @@ export default function Footer() {
           <span className={styles.label}>Explore</span>
           <div className={styles.footNavLinks}>
             <Link href="/">Home</Link>
-            <Link href="/free-guide">The 5-Second Shopper</Link>
-            <Link href="/eat-real-guide">Eat Real, Live Better</Link>
-            <Link href="/the-perfect-list">The Perfect Grocery List</Link>
+            <Link href="/quiz">See How Much You&apos;re Overspending (Cart Cost Quiz)</Link>
             <Link href="/consultations">Consultations</Link>
-            <Link href="/about">About</Link>
+            <Link href="/about">About Us</Link>
           </div>
         </nav>
         <div className={styles.footSocial}>
