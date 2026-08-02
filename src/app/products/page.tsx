@@ -34,8 +34,8 @@ const products = [
     description:
       "Our complete grocery shopping system — 4 list templates, 4 meal planners, 14 healthy recipes, a done-for-you starter week, and the inside scoop on how grocery stores are designed to make you overspend.",
     cta: "Buy The Perfect Grocery List",
-    href: "https://checkout.mailerlite.com/checkout/32176",
-    external: true,
+    href: "/the-perfect-list/checkout",
+    external: false,
     price: "$47",
   },
 ];

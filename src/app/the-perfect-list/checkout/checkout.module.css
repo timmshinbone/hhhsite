@@ -1,0 +1,309 @@
+/* ============================================================
+   Checkout page — /the-perfect-list/checkout
+   Renders its own header and footer; site chrome is suppressed
+   by ConditionalSiteChrome in layout.tsx.
+   ============================================================ */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--cream);
+}
+
+/* ========== Header ========== */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--line);
+  background: rgba(250, 249, 246, 0.95);
+  backdrop-filter: blur(6px);
+}
+
+.headerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--display);
+  font-size: 25px;
+  color: var(--forest);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.secureLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--forest);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--forest);
+  border-bottom: 1px solid var(--forest);
+  padding-bottom: 4px;
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.backLink:hover {
+  color: var(--forest-dark);
+  border-color: var(--forest-dark);
+}
+
+/* ========== Two-column grid ========== */
+
+.main {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 40px 96px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 72px;
+  align-items: start;
+}
+
+/* ========== Summary — left column, sticky ========== */
+
+.summary {
+  position: sticky;
+  top: 118px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.summaryTop {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.summaryLabel {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--forest);
+}
+
+.productName {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(38px, 4.4vw, 54px);
+  line-height: 1.04;
+  color: var(--ink);
+  margin: 0;
+}
+
+.tagline {
+  font-size: 20px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.coverWrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-self: center;
+}
+
+.bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.bullet i {
+  color: var(--forest);
+  font-size: 18px;
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+.priceLine {
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.priceNote {
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+.price {
+  font-family: var(--display);
+  font-size: 38px;
+  line-height: 1;
+  color: var(--ink);
+}
+
+/* ========== Form — right column ========== */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.stripeEmbed {
+  min-height: 580px;
+}
+
+.trustItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.trustItem i {
+  color: var(--forest);
+  font-size: 15px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.stripeError {
+  border: 1px solid var(--line);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 15px;
+}
+
+.stripeError button {
+  align-self: flex-start;
+  background: var(--forest);
+  color: var(--cream);
+  border: none;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* ========== Checkout footer ========== */
+
+.checkoutFooter {
+  border-top: 1px solid var(--line);
+  padding: 26px 40px;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+.refundLink {
+  color: var(--forest);
+  text-decoration: underline;
+}
+
+/* ========== Responsive ========== */
+
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+    padding: 48px 24px 72px;
+    row-gap: 48px;
+  }
+
+  .summary {
+    position: static;
+  }
+
+  .productGrid {
+    grid-template-columns: 130px 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .headerInner {
+    padding: 0 20px;
+    height: 64px;
+  }
+
+  .secureLabel {
+    display: none;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .coverWrap {
+    max-width: 180px;
+  }
+
+  .checkoutFooter {
+    padding: 26px 20px;
+  }
+}

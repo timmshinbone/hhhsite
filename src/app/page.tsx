@@ -172,7 +172,7 @@ export default function Home() {
             steps={[
               {
                 number: 1,
-                label: "Stressed — using a scattered list and wasting time, energy, and hundreds of dollars",
+                label: "Stressed - using a scattered list and wasting time, energy, and hundreds of dollars",
               },
               {
                 number: 2,

@@ -35,9 +35,9 @@ export default function Header() {
         </Link>
         <div className={styles.navRight}>
           {isPerfectList ? (
-            <a target="_blank" href="https://checkout.mailerlite.com/checkout/32176" className="btn btn-primary">
+            <Link href="/the-perfect-list/checkout" className="btn btn-primary">
               Buy The Perfect Grocery List - $47
-            </a>
+            </Link>
           ) : isEatRealGuide ? (
             <a target="_blank" href="https://checkout.mailerlite.com/checkout/32175" className="btn btn-primary">
               Buy Eat Real, Live Better - $17
@@ -53,9 +53,9 @@ export default function Header() {
         <div className={`wrap ${styles.subNavInner}`}>
           <div className={styles.mobileCta}>
             {isPerfectList ? (
-              <a target="_blank" href="https://checkout.mailerlite.com/checkout/32176" className="btn btn-primary">
+              <Link href="/the-perfect-list/checkout" className="btn btn-primary">
                 Get Guide · $47
-              </a>
+              </Link>
             ) : isEatRealGuide ? (
               <a target="_blank" href="https://checkout.mailerlite.com/checkout/32175" className="btn btn-primary">
                 Get Guide · $17

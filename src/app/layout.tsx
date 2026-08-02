@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Raleway } from "next/font/google";
 import Script from "next/script";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import AnnouncementBar from "@/components/AnnouncementBar";
+import ConditionalSiteChrome from "@/components/ConditionalSiteChrome";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -117,10 +115,9 @@ export default function RootLayout({
           src="https://unpkg.com/@phosphor-icons/web@2.1.1"
           strategy="afterInteractive"
         />
-        <AnnouncementBar />
-        <Header />
-        {children}
-        <Footer />
+        <ConditionalSiteChrome>
+          {children}
+        </ConditionalSiteChrome>
       </body>
     </html>
   );

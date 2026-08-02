@@ -244,17 +244,14 @@ export default function GroceryGuidePage() {
             </p>
             <div className={styles.heroCta}>
               <a
-                href="https://checkout.mailerlite.com/checkout/32176"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/the-perfect-list/checkout"
                 className="btn btn-primary lg"
               >
                 Buy The Perfect Grocery List - $47
-                <i className="ph ph-arrow-square-out" />
               </a>
               <span className={styles.guarantee}>
                 <i className="ph ph-shield-check" />
-                Instant Download &nbsp;·&nbsp; Opens in a new tab.
+                Instant PDF download &nbsp;·&nbsp; Secure checkout.
               </span>
             </div>
           </div>
@@ -382,20 +379,17 @@ export default function GroceryGuidePage() {
             </div>
             <div style={{ marginTop: "26px" }}>
               <a
-                href="https://checkout.mailerlite.com/checkout/32176"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/the-perfect-list/checkout"
                 className="btn btn-primary lg"
               >
                 Get The Perfect Grocery List
-                <i className="ph ph-arrow-square-out" />
               </a>
             </div>
             <div style={{ display: "flex", justifyContent: "center", marginTop: 8 }}>
               <div>
                 <p className="fineprint">
                   <i className="ph ph-files" />
-                  Instant PDF download &nbsp;·&nbsp; Opens in a new tab.
+                  Instant PDF download &nbsp;·&nbsp; Secure checkout.
                 </p>
                 <p className="fineprint" style={{ marginTop: 8 }}>
                   <i className="ph ph-prohibit" />
