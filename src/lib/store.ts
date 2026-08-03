@@ -58,3 +58,35 @@ export async function revokePurchase(
   await savePurchase({ ...record, revoked: true });
   return record;
 }
+
+// ─── Lead magnet records (free signups) ────────────────────────────────────
+
+export type LeadRecord = {
+  token: string;
+  email: string;
+  slug: string;
+  fileKey: string;
+  label: string;
+  createdAt: string;
+};
+
+const leadKey = (token: string) => `lead:${token}`;
+const leadEmailKey = (email: string, slug: string) =>
+  `lead-email:${email.toLowerCase()}:${slug}`;
+
+/** Returns an existing token if this email already signed up for this slug. */
+export async function getLeadToken(
+  email: string,
+  slug: string,
+): Promise<string | null> {
+  return redis.get<string>(leadEmailKey(email, slug));
+}
+
+export async function saveLead(record: LeadRecord): Promise<void> {
+  await redis.set(leadKey(record.token), record);
+  await redis.set(leadEmailKey(record.email, record.slug), record.token);
+}
+
+export async function getLeadRecord(token: string): Promise<LeadRecord | null> {
+  return redis.get<LeadRecord>(leadKey(token));
+}

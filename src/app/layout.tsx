@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     template: "%s | Healthy Homemade Habits",
-    default: "Healthy Homemade Habits — Real Food. Real Life. 80/20.",
+    default: "Healthy Homemade Habits: Real Food. Real Life. 80/20.",
   },
   description:
     "Hana & Timm help everyday people cut Ultra Processed Foods without giving up the foods they love, using the 80/20 eating method. Free guides, PDF products, and weekly YouTube videos.",
@@ -48,13 +48,13 @@ export const metadata: Metadata = {
     siteName: "Healthy Homemade Habits",
     locale: "en_US",
     url: siteUrl,
-    title: "Healthy Homemade Habits — Real Food. Real Life. 80/20.",
+    title: "Healthy Homemade Habits: Real Food. Real Life. 80/20.",
     description:
       "Hana & Timm help everyday people cut Ultra Processed Foods without giving up the foods they love, using the 80/20 eating method.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Healthy Homemade Habits — Real Food. Real Life. 80/20.",
+    title: "Healthy Homemade Habits: Real Food. Real Life. 80/20.",
     description:
       "Hana & Timm help everyday people cut Ultra Processed Foods without giving up the foods they love, using the 80/20 eating method.",
   },
@@ -82,7 +82,7 @@ const organizationSchema = {
   url: siteUrl,
   logo: `${siteUrl}/small-circle-logo_w-bg.svg`,
   description:
-    "Hana & Timm help everyday people identify and reduce Ultra Processed Foods using the 80/20 eating method — without giving up the foods they love.",
+    "Hana & Timm help everyday people identify and reduce Ultra Processed Foods using the 80/20 eating method, without giving up the foods they love.",
   founders: [
     { "@type": "Person", name: "Hana" },
     { "@type": "Person", name: "Timm" },

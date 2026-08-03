@@ -60,6 +60,20 @@ export function productBySlug(slug: string): Product | null {
   return PRODUCTS[slug] ?? null;
 }
 
+export type LeadMagnet = {
+  name: string;
+  fileKey: string;
+  mlGroupId: string;
+};
+
+export const LEAD_MAGNETS: Record<string, LeadMagnet> = {
+  'swap-sheet': {
+    name: 'The 5-Second Shopper',
+    fileKey: 'The-5-Second-Shopper-HHH.pdf',
+    mlGroupId: process.env.MAILERLITE_5_SECOND_SHOPPER_GROUP_ID!,
+  },
+};
+
 /** Every buyer lands in this group regardless of what they purchased. */
 export const ML_GROUP_CUSTOMERS = process.env.MAILERLITE_THE_PERFECT_GROCERY_LIST_GROUP_ID!;
 

@@ -18,12 +18,13 @@ import {
 const STORE_KEY = "cleanCart.v1";
 const TOTAL_Q = QUESTIONS.length;
 
-type Step = "entry" | "quiz" | "results";
+type Step = "entry" | "quiz" | "gate" | "results";
 
 interface SavedState {
   step: Step;
   qIndex: number;
   answers: Answers;
+  emailGiven: boolean;
 }
 
 function loadState(): SavedState | null {
@@ -107,7 +108,7 @@ function Entry({ onStart }: { onStart: () => void }) {
         </div>
         <p className="fineprint">
           <i className="ph ph-clock" />
-          Takes under 3 minutes. No signup required to start.
+          Takes under 3 minutes. Enter your email to unlock your results.
         </p>
       </div>
       <div className={styles.entryMedia}>
@@ -180,6 +181,109 @@ function QuizScreen({
   );
 }
 
+function Gate({ onUnlock }: { onUnlock: (email: string) => void }) {
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [gateStatus, setGateStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [downloadUrl, setDownloadUrl] = useState("");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setGateStatus("loading");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug: "swap-sheet", email, firstName }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setErrorMsg(data.error || "Something went wrong. Please try again.");
+        setGateStatus("error");
+        return;
+      }
+      setDownloadUrl(data.downloadUrl || "");
+      setGateStatus("done");
+    } catch {
+      setErrorMsg("Something went wrong. Please try again.");
+      setGateStatus("error");
+    }
+  }
+
+  if (gateStatus === "done") {
+    return (
+      <div className={styles.emailInner}>
+        <span className={styles.checkmark}>
+          <i className="ph ph-check-circle" />
+        </span>
+        <span className="eyebrow">Check your inbox</span>
+        <h1 className={styles.emailH1}>Your free guide is on its way!</h1>
+        <p className={styles.emailSub}>
+          We just sent <strong>The 5-Second Shopper</strong> to {email}. It&apos;ll help you
+          start cutting your grocery bill on your very next trip.
+        </p>
+        {downloadUrl && (
+          <a href={downloadUrl} className="btn btn-outline" style={{ marginBottom: 20 }}>
+            Download now <i className="ph ph-download-simple" />
+          </a>
+        )}
+        <div>
+          <button type="button" className="btn btn-primary" onClick={() => onUnlock(email)}>
+            See My Results <i className="ph ph-arrow-right" />
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className={styles.emailInner}>
+      <span className={styles.checkmark}>
+        <i className="ph ph-check-circle" />
+      </span>
+      <span className="eyebrow">Your results are ready</span>
+      <h1 className={styles.emailH1}>Unlock your free Clean Cart Report</h1>
+      <p className={styles.emailSub}>
+        Enter your email to see your results. We&apos;ll also send you{" "}
+        <strong>The 5-Second Shopper</strong> — our free guide to spotting Ultra Processed
+        Foods in seconds — so you can start saving money on your very next grocery trip.
+      </p>
+      <div className={styles.emailCaptureWrap}>
+        <form className="capture" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            className="capture-name"
+            placeholder="First name (optional)"
+            aria-label="First name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+            disabled={gateStatus === "loading"}
+          />
+          <input
+            type="email"
+            placeholder="your@email.com"
+            aria-label="Email address"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            disabled={gateStatus === "loading"}
+          />
+          <button className="btn btn-primary" type="submit" disabled={gateStatus === "loading"}>
+            {gateStatus === "loading" ? "Sending…" : "Unlock My Results"}
+          </button>
+        </form>
+        {gateStatus === "error" && (
+          <p className="capture-error" role="alert">{errorMsg}</p>
+        )}
+      </div>
+      <p className={`fineprint ${styles.centerFine}`}>
+        <i className="ph ph-lock" /> No spam. Unsubscribe anytime.
+      </p>
+    </div>
+  );
+}
+
 const TIER_KEYS: TierKey[] = ["low", "medium", "high"];
 
 function Results({
@@ -237,7 +341,7 @@ function Results({
           your answers with you, build a personalized grocery list for your
           household, and set you up with a 2-week meal plan that actually fits
           your life. Drop your email below and you'll be the first to know when
-          spots open — and first in line for our founding member rate.
+          spots open, and first in line for our founding member rate.
         </p>
         {!waitlistDone ? (
           <EmailCaptureForm
@@ -291,25 +395,27 @@ export default function QuizApp() {
   const [qIndex, setQIndex] = useState(0);
   const [answers, setAnswers] = useState<Answers>(() => new Array(TOTAL_Q).fill(null));
   const [tierOverride, setTierOverride] = useState<TierKey | null>(null);
+  const [emailGiven, setEmailGiven] = useState(false);
   const [hydrated, setHydrated] = useState(false);
 
   // load any saved progress after mount (avoids SSR/client hydration mismatch)
   useEffect(() => {
     const saved = loadState();
     if (saved) {
-      const validSteps: Step[] = ["entry", "quiz", "results"];
+      const validSteps: Step[] = ["entry", "quiz", "gate", "results"];
       const restoredStep = saved.step as string;
       setStep(validSteps.includes(restoredStep as Step) ? (restoredStep as Step) : "entry");
       setQIndex(saved.qIndex ?? 0);
       setAnswers(saved.answers ?? new Array(TOTAL_Q).fill(null));
+      setEmailGiven(saved.emailGiven ?? false);
     }
     setHydrated(true);
   }, []);
 
   useEffect(() => {
     if (!hydrated) return;
-    saveState({ step, qIndex, answers });
-  }, [hydrated, step, qIndex, answers]);
+    saveState({ step, qIndex, answers, emailGiven });
+  }, [hydrated, step, qIndex, answers, emailGiven]);
 
   // scroll to top of page on screen change
   useEffect(() => {
@@ -325,7 +431,8 @@ export default function QuizApp() {
   }
   function nextQ() {
     if (qIndex < TOTAL_Q - 1) setQIndex(qIndex + 1);
-    else setStep("results");
+    else if (emailGiven) setStep("results");
+    else setStep("gate");
   }
   function backQ() {
     if (qIndex > 0) setQIndex(qIndex - 1);
@@ -356,6 +463,15 @@ export default function QuizApp() {
         onAnswer={answer}
         onNext={nextQ}
         onBack={backQ}
+      />
+    );
+  } else if (step === "gate") {
+    screen = (
+      <Gate
+        onUnlock={() => {
+          setEmailGiven(true);
+          setStep("results");
+        }}
       />
     );
   } else {

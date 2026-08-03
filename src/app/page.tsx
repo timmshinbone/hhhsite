@@ -9,10 +9,10 @@ import styles from "./page.module.css";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Healthy Homemade Habits — Real Food. Real Life. 80/20.",
+    absolute: "Healthy Homemade Habits: Real Food. Real Life. 80/20.",
   },
   description:
-    "Hana & Timm help everyday people cut Ultra Processed Foods using the 80/20 eating method — without giving up the foods they love. Get a free UPF ingredient guide, grocery shopping system, and weekly real-food tips.",
+    "Hana & Timm help everyday people cut Ultra Processed Foods using the 80/20 eating method, without giving up the foods they love. Get a free UPF ingredient guide, grocery shopping system, and weekly real-food tips.",
   keywords: [
     "ultra processed foods",
     "cut processed foods",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     "avoid ultra processed food",
   ],
   openGraph: {
-    title: "Healthy Homemade Habits — Real Food. Real Life. 80/20.",
+    title: "Healthy Homemade Habits: Real Food. Real Life. 80/20.",
     description:
       "Cut Ultra Processed Foods without giving up the foods you love. Free UPF ingredient guide, grocery list system, and weekly real-food tips from Hana & Timm.",
     url: "https://www.healthyhomemadehabits.com",
@@ -105,9 +105,7 @@ export default function Home() {
             </p>
             <div className={styles.heroCta} style={{ justifyContent: "center" }}>
               <a
-                href="https://checkout.mailerlite.com/checkout/32176"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/the-perfect-list/checkout"
                 className="btn btn-primary"
               >
                 I want to save time, energy, and money!
@@ -154,9 +152,7 @@ export default function Home() {
           </p>
           <div style={{ textAlign: "center", marginTop: "32px" }}>
             <a
-              href="https://checkout.mailerlite.com/checkout/32176"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/the-perfect-list/checkout"
               className="btn btn-primary"
             >
               Teach me the perfect system!
@@ -190,9 +186,7 @@ export default function Home() {
           <p className="fineprint" style={{ textAlign: "center" }}>*hundreds of dollars a year</p>
           <div style={{ textAlign: "center", marginTop: "24px" }}>
             <a
-              href="https://checkout.mailerlite.com/checkout/32176"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/the-perfect-list/checkout"
               className="btn btn-primary"
             >
               I&apos;m ready to learn the easy steps
@@ -215,7 +209,10 @@ export default function Home() {
             <div className={styles.teaserCard}>
               <span className="eyebrow">Free</span>
               <h3>The 5-Second Shopper</h3>
-              <p>A color-coded guide to the most common Ultra Processed Ingredients — so you can spot them at a glance.</p>
+              <p>A color-coded guide to the most common Ultra Processed Ingredients, so you can spot them at a glance.</p>
+              <Link href="/free-guide" className="btn btn-outline" style={{ marginTop: "auto" }}>
+                Get the Free Guide
+              </Link>
             </div>
             <div className={styles.teaserCard}>
               <span className="eyebrow">$17</span>
@@ -225,7 +222,7 @@ export default function Home() {
             <div className={styles.teaserCard}>
               <span className="eyebrow">$47</span>
               <h3>The Perfect Grocery List</h3>
-              <p>Our complete grocery shopping system — list templates, meal planners, 14 recipes, and the secrets to getting in and out in under an hour.</p>
+              <p>Our complete grocery shopping system: list templates, meal planners, 14 recipes, and the secrets to getting in and out in under an hour.</p>
             </div>
           </div>
           <div style={{ textAlign: "center", marginTop: "36px" }}>
@@ -258,9 +255,7 @@ export default function Home() {
               ))}
             </ul>
             <a
-              href="https://checkout.mailerlite.com/checkout/32176"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/the-perfect-list/checkout"
               className="btn btn-primary"
             >
               I need that!
@@ -289,9 +284,7 @@ export default function Home() {
             </h2>
             <div style={{ marginTop: "24px" }}>
               <a
-                href="https://checkout.mailerlite.com/checkout/32176"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/the-perfect-list/checkout"
                 className="btn btn-primary"
               >
                 Whoa, I want to save that much!
@@ -353,9 +346,7 @@ export default function Home() {
               Click the button below to get saving at the grocery store today!
             </p>
             <a
-              href="https://checkout.mailerlite.com/checkout/32176"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/the-perfect-list/checkout"
               className="btn btn-primary"
             >
               You&apos;ve convinced me! I&apos;m ready to start saving!

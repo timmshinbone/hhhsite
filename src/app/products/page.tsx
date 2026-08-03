@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Our Products | Healthy Homemade Habits",
   description:
-    "Browse all Healthy Homemade Habits products — from our free UPF ingredient guide to The Perfect Grocery List system.",
+    "Browse all Healthy Homemade Habits products, from our free UPF ingredient guide to The Perfect Grocery List system.",
 };
 
 const products = [
@@ -12,7 +12,7 @@ const products = [
     eyebrow: "Free Download",
     title: "The 5-Second Shopper",
     description:
-      "A color-coded guide to the most common Ultra Processed Ingredients. Organized alphabetically and color-coded so you can scan for what to eat, moderate, or avoid — at a glance.",
+      "A color-coded guide to the most common Ultra Processed Ingredients. Organized alphabetically and color-coded so you can scan for what to eat, moderate, or avoid, at a glance.",
     cta: "Get it free",
     href: "https://checkout.mailerlite.com/checkout/32173",
     external: true,
@@ -32,7 +32,7 @@ const products = [
     eyebrow: "PDF System",
     title: "The Perfect Grocery List",
     description:
-      "Our complete grocery shopping system — 4 list templates, 4 meal planners, 14 healthy recipes, a done-for-you starter week, and the inside scoop on how grocery stores are designed to make you overspend.",
+      "Our complete grocery shopping system: 4 list templates, 4 meal planners, 14 healthy recipes, a done-for-you starter week, and the inside scoop on how grocery stores are designed to make you overspend.",
     cta: "Buy The Perfect Grocery List",
     href: "/the-perfect-list/checkout",
     external: false,

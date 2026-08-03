@@ -21,7 +21,7 @@ export const QUESTIONS: WhichGuideQuestion[] = [
     q: "What's your biggest frustration with food right now?",
     options: [
       {
-        text: "I don't really know what 'healthy' means — everything online seems contradictory",
+        text: "I don't really know what 'healthy' means, everything online seems contradictory",
         erlb: 1,
         pgl: 0,
       },
@@ -45,7 +45,7 @@ export const QUESTIONS: WhichGuideQuestion[] = [
         pgl: 0,
       },
       {
-        text: "Know the red flags — I just struggle to stick to my list in the store",
+        text: "Know the red flags, I just struggle to stick to my list in the store",
         erlb: 0,
         pgl: 1,
       },
@@ -57,7 +57,7 @@ export const QUESTIONS: WhichGuideQuestion[] = [
     q: "How do you usually plan what you'll eat for the week?",
     options: [
       {
-        text: "I don't plan — I eat whatever I find or just get takeout",
+        text: "I don't plan, I eat whatever I find or just get takeout",
         erlb: 1,
         pgl: 0,
       },
@@ -79,7 +79,7 @@ export const QUESTIONS: WhichGuideQuestion[] = [
     q: "When you finish a grocery run, you usually feel:",
     options: [
       {
-        text: "Like I grabbed stuff I shouldn't have — without knowing exactly why",
+        text: "Like I grabbed stuff I shouldn't have, without knowing exactly why",
         erlb: 1,
         pgl: 0,
       },
@@ -106,7 +106,7 @@ export const QUESTIONS: WhichGuideQuestion[] = [
         pgl: 0,
       },
       {
-        text: "I cook fairly regularly — I just need a better shopping system to support it",
+        text: "I cook fairly regularly, I just need a better shopping system to support it",
         erlb: 0,
         pgl: 1,
       },
@@ -145,7 +145,7 @@ export const QUESTIONS: WhichGuideQuestion[] = [
     q: "How would you describe your current eating habits?",
     options: [
       {
-        text: "Mostly whatever is convenient — I haven't really tried to eat healthier yet",
+        text: "Mostly whatever is convenient, I haven't really tried to eat healthier yet",
         erlb: 1,
         pgl: 0,
       },
@@ -155,7 +155,7 @@ export const QUESTIONS: WhichGuideQuestion[] = [
         pgl: 1,
       },
       {
-        text: "I'm already health-conscious — I just need a smarter grocery routine",
+        text: "I'm already health-conscious, I just need a smarter grocery routine",
         erlb: 0,
         pgl: 1,
       },

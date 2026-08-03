@@ -4,7 +4,6 @@ import Faq from "@/components/Faq";
 import styles from "./page.module.css";
 
 import tpglImg from "../../../public/images/web_mockups/Main Page TPGL Option 2.png";
-import coupleImg from "../../../public/images/handt_couple_photo.jpeg";
 
 const productSchema = {
   "@context": "https://schema.org",
@@ -291,6 +290,11 @@ export default function GroceryGuidePage() {
               </div>
             ))}
           </div>
+          <div style={{ textAlign: "center", marginTop: "48px" }}>
+            <a href="/the-perfect-list/checkout" className="btn btn-primary lg">
+              Yes! Show me how to make grocery shopping easy!
+            </a>
+          </div>
         </div>
       </section>
 
@@ -313,6 +317,11 @@ export default function GroceryGuidePage() {
               </div>
             ))}
           </div>
+          <div style={{ textAlign: "center", marginTop: "48px" }}>
+            <a href="/the-perfect-list/checkout" className="btn btn-primary lg">
+              I want everything inside the guide!
+            </a>
+          </div>
         </div>
       </section>
 
@@ -327,29 +336,10 @@ export default function GroceryGuidePage() {
             </span>{" "}
             This simple system has been the only thing we&apos;ve used for the last 6 years, and we&apos;d never dream of going back to the old way! Shop quickly, shop with focus, and never forget an item again!
           </p>
-        </div>
-      </section>
-
-      {/* ============ BIO ============ */}
-      <section className="section line">
-        <div className={`wrap ${styles.bioGrid}`}>
-          <div className={styles.bioMedia}>
-            <div className={styles.coupleCover}>
-              <Image
-                src={coupleImg}
-                alt="Hana and Timm"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-          </div>
-          <div>
-            <span className="eyebrow">We make grocery shopping fun</span>
-            <h2>We learned this the hard way so you don&apos;t have to.</h2>
-            <p>
-              We&apos;re Hana and Timm, a couple of starry eyed grocery shoppers, supermarket tourists, and GGG stockist wannabes. (IYKYK) We&apos;ve studied the Grocery Store in search of a simpler way to shop, and we&apos;ve cracked the code! If you&apos;ve ever wished someone could just do your grocery shopping for you, try The Perfect Grocery List! It&apos;s the next best thing!
-            </p>
-            <p className={styles.sig}>Hana &amp; Timm</p>
+          <div style={{ textAlign: "center", marginTop: "36px" }}>
+            <a href="/the-perfect-list/checkout" className="btn btn-primary lg">
+              I want to get in and out, stress-free!
+            </a>
           </div>
         </div>
       </section>

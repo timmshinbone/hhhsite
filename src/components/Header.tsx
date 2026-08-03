@@ -8,7 +8,7 @@ import styles from "./Header.module.css";
 
 const navLinks = [
   { href: "/quiz", label: "Cart Cost Quiz" },
-  { href: "/the-perfect-list", label: "Shop" },
+  { href: "/the-perfect-list", label: "The Perfect Grocery List" },
   { href: "/consultations", label: "Consultations" },
   { href: "/about", label: "About" },
 ];
@@ -43,7 +43,7 @@ export default function Header() {
               Buy Eat Real, Live Better - $17
             </a>
           ) : (
-            <Link target="_blank" href="https://checkout.mailerlite.com/checkout/32173" className="btn btn-primary">
+            <Link href="/free-guide" className="btn btn-primary">
               Get the Free Guide!
             </Link>
           )}
@@ -61,7 +61,7 @@ export default function Header() {
                 Get Guide · $17
               </a>
             ) : (
-              <Link target="_blank" href="https://checkout.mailerlite.com/checkout/32173" className="btn btn-primary">
+              <Link href="/free-guide" className="btn btn-primary">
                 Free Guide
               </Link>
             )}

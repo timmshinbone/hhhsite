@@ -1,0 +1,96 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 12px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--ink);
+}
+
+.req {
+  color: var(--forest);
+}
+
+.input {
+  padding: 11px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  font-size: 16px;
+  color: var(--ink);
+  background: #fff;
+  outline: none;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+
+.input:focus {
+  border-color: var(--forest);
+}
+
+.submit {
+  margin-top: 4px;
+  align-self: flex-start;
+}
+
+.error {
+  font-size: 14px;
+  color: #c0392b;
+  margin: 4px 0 0;
+}
+
+/* Honeypot: visible enough that bots see it, invisible to users */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+  tab-index: -1;
+}
+
+/* Success state */
+.done {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.doneHead {
+  font-family: var(--display);
+  font-size: 26px;
+  color: var(--forest);
+  margin: 0;
+}
+
+.doneSub {
+  font-size: 17px;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 440px;
+}
+
+@media (max-width: 600px) {
+  .fields {
+    grid-template-columns: 1fr;
+  }
+
+  .submit {
+    align-self: stretch;
+    justify-content: center;
+  }
+}

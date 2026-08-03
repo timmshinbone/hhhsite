@@ -6,7 +6,7 @@ import styles from './thank-you.module.css';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Order Complete — Thank You',
+  title: 'Order Complete: Thank You',
   robots: { index: false, follow: false },
 };
 
@@ -67,7 +67,7 @@ export default async function ThankYouPage({
               </Link>
               <p className={styles.permanentNote}>
                 <i className="ph ph-link-simple" />
-                This link is yours permanently — it always serves the latest
+                This link is yours permanently, it always serves the latest
                 version of the guide.
               </p>
             </div>

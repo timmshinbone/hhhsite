@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import SignupForm from "./SignupForm";
 
 import styles from "./page.module.css";
 
@@ -126,19 +127,7 @@ export default function FreeGuidePage() {
                 Small steps toward better health
               </span>
             </div>
-            <a
-              href="https://checkout.mailerlite.com/checkout/32173"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              Get the Free Guide
-              <i className="ph ph-arrow-square-out" />
-            </a>
-            <p className="fineprint">
-              <i className="ph ph-lock-simple" />
-              No spam, ever. Unsubscribe anytime. &nbsp;·&nbsp; Opens in a new tab.
-            </p>
+            <SignupForm slug="swap-sheet" />
           </div>
           <div className={styles.heroMedia}>
               <div className={styles.productCover}>
@@ -226,19 +215,7 @@ export default function FreeGuidePage() {
             <p>
               Click below to grab your free copy - it&apos;s instant!
             </p>
-            <a
-              href="https://checkout.mailerlite.com/checkout/32173"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`btn btn-primary ${styles.captureCenter}`}
-            >
-              Get the Free Guide
-              <i className="ph ph-arrow-square-out" />
-            </a>
-            <p className="fineprint" style={{ justifyContent: "center" }}>
-              <i className="ph ph-files" />
-              Instant digital download &nbsp;·&nbsp; Opens in a new tab.
-            </p>
+            <SignupForm slug="swap-sheet" />
           </div>
         </div>
       </section>
