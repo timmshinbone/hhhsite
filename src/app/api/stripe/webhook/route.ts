@@ -104,8 +104,14 @@ async function handleCompleted(session: Stripe.Checkout.Session) {
     ...(optedIn ? [ML_GROUP_NEWSLETTER] : []),
   ];
 
+  // Read from our custom_fields first; fall back to splitting the billing name.
+  const cfMap = Object.fromEntries(
+    (session.custom_fields ?? []).map((f) => [f.key, f.text?.value ?? ''])
+  );
   const fullName = session.customer_details?.name ?? '';
-  const [firstName, ...rest] = fullName.split(' ');
+  const [splitFirst, ...splitRest] = fullName.split(' ');
+  const firstName = cfMap.first_name?.trim() || splitFirst || '';
+  const rest = cfMap.last_name?.trim() ? [cfMap.last_name.trim()] : splitRest;
 
   const subscriber = await upsertSubscriber({
     email,

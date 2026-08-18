@@ -9,6 +9,7 @@ export async function POST(request: Request) {
   let email: string;
   let groupParam: string;
   let firstName: string;
+  let lastName: string;
   let slug: string;
   let website: string;
   try {
@@ -16,6 +17,7 @@ export async function POST(request: Request) {
     email = typeof body?.email === 'string' ? body.email.trim() : '';
     groupParam = typeof body?.group === 'string' ? body.group : '';
     firstName = typeof body?.firstName === 'string' ? body.firstName.trim() : '';
+    lastName = typeof body?.lastName === 'string' ? body.lastName.trim() : '';
     slug = typeof body?.slug === 'string' ? body.slug.trim() : '';
     website = typeof body?.website === 'string' ? body.website : '';
   } catch {
@@ -80,6 +82,7 @@ export async function POST(request: Request) {
         download_url: downloadUrl,
         purchased_product: leadMagnet.name,
         ...(firstName ? { name: firstName } : {}),
+        ...(lastName ? { last_name: lastName } : {}),
       },
     });
 
@@ -103,7 +106,12 @@ export async function POST(request: Request) {
     await upsertSubscriber({
       email,
       groups: [resolvedGroupId],
-      ...(firstName ? { fields: { name: firstName } } : {}),
+      ...((firstName || lastName) ? {
+        fields: {
+          ...(firstName ? { name: firstName } : {}),
+          ...(lastName ? { last_name: lastName } : {}),
+        },
+      } : {}),
     });
     return Response.json({ success: true });
   } catch (err) {

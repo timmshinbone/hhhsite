@@ -43,6 +43,18 @@ export async function POST(req: NextRequest) {
       allow_promotion_codes: true,
       customer_creation: 'always',
 
+      custom_fields: [
+        {
+          key: 'first_name',
+          label: { type: 'custom', custom: 'First name' },
+          type: 'text',
+        },
+        {
+          key: 'last_name',
+          label: { type: 'custom', custom: 'Last name' },
+          type: 'text',
+        },
+      ],
       metadata: { slug: product.slug },
     });
 

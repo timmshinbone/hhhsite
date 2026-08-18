@@ -196,6 +196,7 @@ export default function Home() {
       </section>
 
       {/* ============ PRODUCTS TEASER ============ */}
+      {/* HIDDEN — uncomment to restore
       <section className="section line" id="products">
         <div className="wrap">
           <div className="head-center">
@@ -207,11 +208,11 @@ export default function Home() {
           </div>
           <div className={styles.productTeaser}>
             <div className={styles.teaserCard}>
-              <span className="eyebrow">Free</span>
-              <h3>The 5-Second Shopper</h3>
-              <p>A color-coded guide to the most common Ultra Processed Ingredients, so you can spot them at a glance.</p>
-              <Link href="/free-guide" className="btn btn-outline" style={{ marginTop: "auto" }}>
-                Get the Free Guide
+              <span className="eyebrow">Free · 3 minutes</span>
+              <h3>Cart Cost Quiz</h3>
+              <p>Find out exactly how much you&apos;re overspending at the grocery store — and get a free gift when you finish.</p>
+              <Link href="/quiz" className="btn btn-outline" style={{ marginTop: "auto" }}>
+                Find Out How Much You Can Save
               </Link>
             </div>
             <div className={styles.teaserCard}>
@@ -232,6 +233,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* ============ WHAT YOU'LL GET (TPGL) ============ */}
       <section className="section line">

@@ -7,12 +7,13 @@ import styles from "./page.module.css";
 import tpglImg from "../../../public/images/web_mockups/Product Page TFSS.png";
 import coupleImg from "../../../public/images/handt_couple_photo.jpeg";
 
+// TODO: Update schema once final copy is written for Simple Shopping Savings
 const freeGuideSchema = {
   "@context": "https://schema.org",
   "@type": "DigitalDocument",
-  name: "The 5-Second Shopper",
+  name: "Simple Shopping Savings",
   description:
-    "A free quick-reference guide listing 125+ Ultra Processed Food ingredients alphabetically, color-coded by severity, plus a simple 5-second formula for evaluating any packaged food at the grocery store.",
+    "A free guide to cutting your grocery bill without sacrificing the food you love.",
   author: { "@type": "Organization", name: "Healthy Homemade Habits" },
   url: "https://www.healthyhomemadehabits.com/free-guide",
   offers: {
@@ -23,73 +24,67 @@ const freeGuideSchema = {
   },
 };
 
+// TODO: Update metadata once final copy is written for Simple Shopping Savings
 export const metadata: Metadata = {
-  title: "The 5-Second Shopper - Free UPF Ingredient Guide",
+  title: "Simple Shopping Savings - Free Grocery Savings Guide",
   description:
-    "Free downloadable guide listing 125+ Ultra Processed Food ingredients, color-coded by severity (fine, moderate, avoid), plus our simple 5-second formula for evaluating any packaged food at the grocery store.",
+    "Free downloadable guide to cutting your grocery bill without sacrificing the food you love.",
   keywords: [
-    "ultra processed food ingredients list",
-    "UPF ingredients",
-    "how to identify processed foods",
-    "food additives list",
+    "grocery savings guide",
+    "how to save money on groceries",
     "free healthy eating guide",
-    "ingredient label reading",
-    "how to avoid ultra processed foods",
-    "packaged food evaluation",
+    "grocery budget tips",
+    "smart grocery shopping",
   ],
   openGraph: {
-    title: "The 5-Second Shopper - Free UPF Ingredient Guide | Healthy Homemade Habits",
+    title: "Simple Shopping Savings - Free Guide | Healthy Homemade Habits",
     description:
-      "Free guide: 125+ Ultra Processed Food ingredients listed alphabetically, color-coded by severity. Includes our simple 5-second formula for evaluating packaged foods at the grocery store.",
+      "Free guide to cutting your grocery bill without sacrificing the food you love.",
     url: "https://www.healthyhomemadehabits.com/free-guide",
   },
 };
 
+// TODO: Replace with final copy for Simple Shopping Savings
 const whatsInside = [
   {
     icon: "ph-list-checks",
     accent: "a-sage",
-    title: "A list of over 125 Ultra Processed ingredients",
-    description:
-      "Listed in alphabetical order for quick scanning, color coded for quick understanding - fine to consume in moderation, limit consumption, and avoid entirely.",
+    title: "TODO: What's inside benefit 1",
+    description: "TODO: Description for benefit 1.",
   },
   {
     icon: "ph-timer",
     accent: "a-sky",
-    title: "A simple formula to gauge whether or not this food is worth being in your cart",
-    description:
-      "This is the simple, 5-second method we use to calculate whether or not we want to consume a packaged product.",
+    title: "TODO: What's inside benefit 2",
+    description: "TODO: Description for benefit 2.",
   },
   {
     icon: "ph-storefront",
     accent: "a-blush",
-    title: "Tried and true tips for navigating the grocery store",
-    description:
-      "The grocery store wants you to buy UPFs, but if you're committed to avoiding them, we teach you how to buy the most healthful ingredients possible!",
+    title: "TODO: What's inside benefit 3",
+    description: "TODO: Description for benefit 3.",
   },
 ];
 
+// TODO: Replace with final copy for Simple Shopping Savings
 const benefits = [
   {
     icon: "ph-magnifying-glass",
     accent: "a-forest",
-    title: "You know “junk food” isn't good for you, but what makes some food junk, and some food not?",
-    description:
-      "Ingredient labels are straightforward, but the ingredients… not so much. Find out what all those chemical sounding names really mean!",
+    title: "TODO: Is this you? scenario 1",
+    description: "TODO: Description for scenario 1.",
   },
   {
     icon: "ph-scales",
     accent: "a-sky",
-    title: "You confidently pick up the “natural” looking packaging, especially the ones that say “full of fiber” or “super protein” or “Real healthy!”",
-    description:
-      "Then you feel confused or discouraged when the ingredient list is as long as your arm, and full of ingredients you’ve never heard before.",
+    title: "TODO: Is this you? scenario 2",
+    description: "TODO: Description for scenario 2.",
   },
   {
     icon: "ph-footprints",
     accent: "a-blush",
-    title: "You tried to eat clean before, but felt dissatisfied by the bland, boring, and overcomplicated recipes.",
-    description:
-      "Eating healthy doesn't mean giving up everything you love. It means balancing wholesome, nutritious foods with small, smartly chosen indulgences. Eating clean is simple when you know exactly what you're consuming.",
+    title: "TODO: Is this you? scenario 3",
+    description: "TODO: Description for scenario 3.",
   },
 ];
 
@@ -105,11 +100,13 @@ export default function FreeGuidePage() {
         <div className={`wrap ${styles.heroGrid}`}>
           <div>
             <span className="eyebrow">Free digital guide</span>
+            {/* TODO: Update h1 with final Simple Shopping Savings headline */}
             <h1>
-              Identify Ultra Processed Foods in 5 Seconds with this handy list!
+              Simple Shopping Savings
             </h1>
+            {/* TODO: Update with final Simple Shopping Savings description */}
             <p className={styles.sub}>
-              Tired of standing in the grocery aisles, trying to figure out if a packaged food is healthy or not? Maybe you've heard about Ultra Processed Foods, but you don't know what they are, or how to identify them, and especially how to avoid them. Or maybe you're aware that food dyes and artificial sweeteners are under scrutiny, but with so many chemical sounding names on the ingredients lists you're not sure which ones they are. The 5-Second Shopper answers all those questions for you, and so much more!
+              TODO: Add hero description for Simple Shopping Savings.
             </p>
             <div className={styles.metaRow}>
               <span className={styles.m}>
@@ -127,13 +124,13 @@ export default function FreeGuidePage() {
                 Small steps toward better health
               </span>
             </div>
-            <SignupForm slug="swap-sheet" />
+            <SignupForm slug="simple-shopping-savings" />
           </div>
           <div className={styles.heroMedia}>
               <div className={styles.productCover}>
                 <Image
                   src={tpglImg}
-                  alt="The 5-Second Shopper - free guide product mockup"
+                  alt="Simple Shopping Savings - free guide product mockup"
                   fill
                   style={{ objectFit: "cover" }}
                   priority
@@ -149,7 +146,8 @@ export default function FreeGuidePage() {
         <div className="wrap">
           <div className="head-center">
             <span className="eyebrow">Is this you?</span>
-            <h2>You really want to eat healthier, but it feels like everything in the store is against you.</h2>
+            {/* TODO: Update with final Simple Shopping Savings benefits headline */}
+            <h2>TODO: Add benefits section headline.</h2>
           </div>
           <div className="kgrid cols-3">
             {benefits.map((benefit) => (
@@ -168,7 +166,8 @@ export default function FreeGuidePage() {
         <div className="wrap">
           <div className="head-center">
             <span className="eyebrow">What&apos;s inside the free guide</span>
-            <h2>Start Eating Healthier Today</h2>
+            {/* TODO: Update with final Simple Shopping Savings inside headline */}
+            <h2>TODO: Add what's inside headline.</h2>
           </div>
           <div className="kgrid cols-3">
             {whatsInside.map((item) => (
@@ -210,12 +209,13 @@ export default function FreeGuidePage() {
       <section className="section line">
         <div className="wrap">
           <div className={`frame cta-center ${styles.minicta}`}>
-            <span className="eyebrow">Ready to stop eating UPFs?</span>
-            <h2>Grab your free copy of &ldquo;The 5-Second Shopper!&rdquo;</h2>
+            <span className="eyebrow">Ready to start saving?</span>
+            {/* TODO: Update CTA headline and subtext for Simple Shopping Savings */}
+            <h2>Grab your free copy of &ldquo;Simple Shopping Savings!&rdquo;</h2>
             <p>
-              Click below to grab your free copy - it&apos;s instant!
+              Click below to grab your free copy — it&apos;s instant!
             </p>
-            <SignupForm slug="swap-sheet" />
+            <SignupForm slug="simple-shopping-savings" />
           </div>
         </div>
       </section>

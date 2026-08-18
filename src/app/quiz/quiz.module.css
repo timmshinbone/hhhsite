@@ -124,7 +124,10 @@
 .emailH1 { font-size: clamp(38px, 5vw, 58px); line-height: 1.05; }
 .emailSub { font-size: 20px; color: var(--ink-soft); margin: 18px 0 36px; }
 .centerFine { justify-content: center; margin-top: 20px; }
-.emailCaptureWrap :global(.capture) { margin: 0 auto; }
+.emailCaptureWrap :global(.capture) { margin: 0 auto; flex-direction: column; }
+.emailCaptureWrap :global(.capture input) { flex: none; width: 100%; border-right: none !important; border-bottom: 1px solid var(--forest); }
+.emailCaptureWrap :global(.capture .btn) { width: 100%; }
+.emailCaptureWrap :global(.capture-name) { border-right: none !important; }
 
 /* ---------- results ---------- */
 .resultsConfirm {
@@ -192,7 +195,7 @@
 
 .secondaryLink {
   display: inline-block; margin-top: 28px;
-  font-size: 14px; color: var(--ink-soft); border-bottom: 1px solid var(--cream-2);
+  font-size: 16px; font-weight: 700; color: var(--ink); border-bottom: 2px solid var(--ink);
   padding-bottom: 3px; transition: color .2s ease, border-color .2s ease;
 }
 .secondaryLink:hover { color: var(--forest); border-color: var(--forest); }
@@ -248,6 +251,11 @@
 .softArrow { color: var(--forest); font-size: 20px; margin-top: 8px; transition: color .2s ease; }
 
 /* ---------- waitlist callout ---------- */
+.waitlist :global(.capture) { flex-direction: column; max-width: 420px; }
+.waitlist :global(.capture input) { flex: none; width: 100%; border-right: none !important; border-bottom: 1px solid var(--forest); }
+.waitlist :global(.capture .btn) { width: 100%; }
+.waitlist :global(.capture-name) { border-right: none !important; }
+
 .waitlist {
   background: var(--forest-light);
   border: 1px solid var(--forest);

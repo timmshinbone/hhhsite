@@ -3,7 +3,7 @@ import Image from "next/image";
 import Faq from "@/components/Faq";
 import styles from "./page.module.css";
 
-import tpglImg from "../../../public/images/web_mockups/Main Page TPGL Option 2.png";
+import tpglImg from "../../../public/images/web_mockups/NEW_Mockup_for_HHH_Website.png";
 
 const productSchema = {
   "@context": "https://schema.org",

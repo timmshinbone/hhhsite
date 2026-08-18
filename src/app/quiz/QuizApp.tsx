@@ -188,14 +188,14 @@ function Gate({ onUnlock }: { onUnlock: (email: string) => void }) {
   const [errorMsg, setErrorMsg] = useState("");
   const [downloadUrl, setDownloadUrl] = useState("");
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setGateStatus("loading");
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug: "swap-sheet", email, firstName }),
+        body: JSON.stringify({ slug: "simple-shopping-savings", email, firstName }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -220,7 +220,7 @@ function Gate({ onUnlock }: { onUnlock: (email: string) => void }) {
         <span className="eyebrow">Check your inbox</span>
         <h1 className={styles.emailH1}>Your free guide is on its way!</h1>
         <p className={styles.emailSub}>
-          We just sent <strong>The 5-Second Shopper</strong> to {email}. It&apos;ll help you
+          We just sent <strong>Simple Shopping Savings</strong> to {email}. It&apos;ll help you
           start cutting your grocery bill on your very next trip.
         </p>
         {downloadUrl && (
@@ -246,18 +246,19 @@ function Gate({ onUnlock }: { onUnlock: (email: string) => void }) {
       <h1 className={styles.emailH1}>Unlock your free Clean Cart Report</h1>
       <p className={styles.emailSub}>
         Enter your email to see your results. We&apos;ll also send you{" "}
-        <strong>The 5-Second Shopper</strong> — our free guide to spotting Ultra Processed
-        Foods in seconds — so you can start saving money on your very next grocery trip.
+        <strong>Simple Shopping Savings</strong> — our free guide to cutting your grocery
+        bill without sacrificing the food you love.
       </p>
       <div className={styles.emailCaptureWrap}>
         <form className="capture" onSubmit={handleSubmit}>
           <input
             type="text"
             className="capture-name"
-            placeholder="First name (optional)"
+            placeholder="First name"
             aria-label="First name"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
+            required
             disabled={gateStatus === "loading"}
           />
           <input
@@ -334,20 +335,22 @@ function Results({
       <div className={styles.waitlist}>
         <span className="eyebrow">Coming soon</span>
         <h2 className={styles.waitlistH2}>
-          The Clean Cart Consultation is on its way.
+          Our Consultation service is on its way!
         </h2>
         <p className={styles.waitlistDesc}>
-          We're building a 1-on-1 session where Hana and Timm walk through
-          your answers with you, build a personalized grocery list for your
-          household, and set you up with a 2-week meal plan that actually fits
-          your life. Drop your email below and you'll be the first to know when
-          spots open, and first in line for our founding member rate.
+          We&apos;re building a 1-on-1 session where we walk through your answers
+          with you, build a personalized grocery list for your household, and set
+          you up with a 1-month meal plan that actually fits your life. Drop your
+          email below and you&apos;ll be the first to know when spots open, and first
+          in line for our founding member rate!
         </p>
         {!waitlistDone ? (
           <EmailCaptureForm
             placeholder="your@email.com"
             buttonLabel="Join the Waitlist"
             group="waitlist"
+            collectFirstName
+            collectLastName
             onSuccess={() => setWaitlistDone(true)}
           />
         ) : (
@@ -357,7 +360,7 @@ function Results({
           </p>
         )}
         <a className={styles.secondaryLink} href="/the-perfect-list">
-          Not ready to wait? Start with our Grocery Guide instead →
+          Don&apos;t want to wait? Start saving now using The Perfect Grocery List →
         </a>
       </div>
 
@@ -369,20 +372,22 @@ function Results({
         .
       </p>
 
-      {/* ----- demo tier preview ----- */}
-      <div className={styles.tierPreview}>
-        <span className={styles.tierPreviewLabel}>Demo - preview result tier</span>
-        <div className={styles.tierBtns}>
-          {TIER_KEYS.map((t) => (
-            <button
-              key={t}
-              type="button"
-              className={`${styles.tierBtn} ${tierKey === t ? styles.tierBtnOn : ""}`}
-              onClick={() => onTierPreview(t)}
-            >
-              {t}
-            </button>
-          ))}
+      {/* ----- demo tier preview (hidden — restore display to use for debugging) ----- */}
+      <div style={{ display: "none" }}>
+        <div className={styles.tierPreview}>
+          <span className={styles.tierPreviewLabel}>Demo - preview result tier</span>
+          <div className={styles.tierBtns}>
+            {TIER_KEYS.map((t) => (
+              <button
+                key={t}
+                type="button"
+                className={`${styles.tierBtn} ${tierKey === t ? styles.tierBtnOn : ""}`}
+                onClick={() => onTierPreview(t)}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </div>

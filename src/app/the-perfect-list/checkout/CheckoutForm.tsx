@@ -15,11 +15,6 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 export default function CheckoutForm({ slug }: { slug: string }) {
   const [error, setError] = useState<string | null>(null);
 
-  /**
-   * The EmbeddedCheckoutProvider calls this on mount to get the client secret.
-   * If it throws, the provider renders nothing — so we catch here and show
-   * a human-readable message instead of a blank box.
-   */
   const fetchClientSecret = useCallback(async () => {
     const res = await fetch('/api/checkout', {
       method: 'POST',

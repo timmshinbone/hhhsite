@@ -52,32 +52,31 @@ export default function CheckoutPage() {
             </p>
           </div>
 
-          <div className={styles.productGrid}>
-            <div className={styles.coverWrap}>
-              <Image
-                src="/images/web_mockups/Main Page TPGL Option 2.png"
-                alt="The Perfect Grocery List product mockup"
-                fill
-                sizes="200px"
-                loading="eager"
-                style={{ objectFit: 'cover' }}
-              />
-            </div>
-            <ul className={styles.bullets}>
-              <li className={styles.bullet}>
-                <i className="ph ph-check" />
-                Instant PDF download
-              </li>
-              <li className={styles.bullet}>
-                <i className="ph ph-check" />
-                1 Done For You Perfect Menu and Perfect Grocery List to get you started using this system right away!
-              </li>
-              <li className={styles.bullet}>
-                <i className="ph ph-check" />
-                The complete outline of our perfect shopping system to save you time and money at the grocery stores
-              </li>
-            </ul>
+          <div className={styles.coverWrap}>
+            <Image
+              src="/images/web_mockups/NEW_Mockup_for_HHH_Website.png"
+              alt="The Perfect Grocery List product mockup"
+              width={1000}
+              height={800}
+              loading="eager"
+              style={{ width: '100%', height: 'auto', display: 'block' }}
+            />
           </div>
+
+          <ul className={styles.bullets}>
+            <li className={styles.bullet}>
+              <i className="ph ph-check" />
+              Instant PDF download
+            </li>
+            <li className={styles.bullet}>
+              <i className="ph ph-check" />
+              1 Done For You Perfect Menu and Perfect Grocery List to get you started using this system right away!
+            </li>
+            <li className={styles.bullet}>
+              <i className="ph ph-check" />
+              The complete outline of our perfect shopping system to save you time and money at the grocery stores
+            </li>
+          </ul>
 
           <div className={styles.includesList}>
             <span className={styles.includesLabel}>What&apos;s inside</span>

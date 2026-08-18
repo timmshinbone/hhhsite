@@ -135,16 +135,7 @@
   margin: 0;
 }
 
-.productGrid {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 28px;
-  align-items: start;
-}
-
 .coverWrap {
-  position: relative;
-  aspect-ratio: 3 / 4;
   border: 1px solid var(--line);
   overflow: hidden;
 }
@@ -299,10 +290,6 @@
     position: static;
   }
 
-  .productGrid {
-    grid-template-columns: 130px 1fr;
-    gap: 20px;
-  }
 }
 
 @media (max-width: 600px) {
@@ -317,14 +304,6 @@
 
   .logo {
     font-size: 20px;
-  }
-
-  .productGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .coverWrap {
-    max-width: 180px;
   }
 
   .checkoutFooter {

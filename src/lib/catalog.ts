@@ -67,10 +67,15 @@ export type LeadMagnet = {
 };
 
 export const LEAD_MAGNETS: Record<string, LeadMagnet> = {
-  'swap-sheet': {
-    name: 'The 5-Second Shopper',
-    fileKey: 'The-5-Second-Shopper-HHH.pdf',
-    mlGroupId: process.env.MAILERLITE_5_SECOND_SHOPPER_GROUP_ID!,
+  // 'swap-sheet': {
+  //   name: 'The 5-Second Shopper',
+  //   fileKey: 'The-5-Second-Shopper-HHH.pdf',
+  //   mlGroupId: process.env.MAILERLITE_5_SECOND_SHOPPER_GROUP_ID!,
+  // },
+  'simple-shopping-savings': {
+    name: 'Simple Shopping Savings',
+    fileKey: 'Simple-Shopping-Savings-HHH.pdf',
+    mlGroupId: process.env.MAILERLITE_FREEBIE_GROUP_ID!,
   },
 };
 

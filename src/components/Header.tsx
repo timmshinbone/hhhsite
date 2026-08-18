@@ -43,8 +43,8 @@ export default function Header() {
               Buy Eat Real, Live Better - $17
             </a>
           ) : (
-            <Link href="/free-guide" className="btn btn-primary">
-              Get the Free Guide!
+            <Link href="/quiz" className="btn btn-primary">
+              Take the Quiz!
             </Link>
           )}
         </div>
@@ -61,8 +61,8 @@ export default function Header() {
                 Get Guide · $17
               </a>
             ) : (
-              <Link href="/free-guide" className="btn btn-primary">
-                Free Guide
+              <Link href="/quiz" className="btn btn-primary">
+                Take the Quiz!
               </Link>
             )}
           </div>
