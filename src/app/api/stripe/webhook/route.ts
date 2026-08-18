@@ -116,9 +116,7 @@ async function handleCompleted(session: Stripe.Checkout.Session) {
   const subscriber = await upsertSubscriber({
     email,
     groups,
-    // Only mark active on explicit consent. Never quietly resubscribe someone
-    // who previously opted out — a purchase alone is not marketing consent.
-    status: optedIn ? 'active' : undefined,
+    status: 'active',
     fields: {
       name: firstName || '',
       last_name: rest.join(' '),

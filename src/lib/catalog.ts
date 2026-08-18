@@ -83,7 +83,7 @@ export const LEAD_MAGNETS: Record<string, LeadMagnet> = {
 export const ML_GROUP_CUSTOMERS = process.env.MAILERLITE_THE_PERFECT_GROCERY_LIST_GROUP_ID!;
 
 /** Buyers who ticked the marketing opt-in inside the Stripe form. */
-export const ML_GROUP_NEWSLETTER = process.env.MAILERLITE_THE_PERFECT_GROCERY_LIST_GROUP_ID!;
+export const ML_GROUP_NEWSLETTER = process.env.MAILERLITE_WEEKLY_EMAILS_GROUP_ID!;
 
 export function entitlementsForPrices(priceIds: string[]): Entitlement[] {
   const keys = new Set<string>();

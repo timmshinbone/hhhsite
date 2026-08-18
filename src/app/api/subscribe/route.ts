@@ -55,7 +55,7 @@ export async function POST(request: Request) {
     // Deduplication: return the existing token if they already signed up
     const existingToken = await getLeadToken(email, slug);
     if (existingToken) {
-      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? '';
+      const siteUrl = process.env.SITE_URL ?? '';
       return Response.json({
         downloadUrl: `${siteUrl}/download/${existingToken}`,
         repeat: true,
@@ -63,7 +63,7 @@ export async function POST(request: Request) {
     }
 
     const token = crypto.randomUUID();
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? '';
+    const siteUrl = process.env.SITE_URL ?? '';
     const downloadUrl = `${siteUrl}/download/${token}`;
 
     await saveLead({
@@ -78,6 +78,7 @@ export async function POST(request: Request) {
     await upsertSubscriber({
       email,
       groups: [leadMagnet.mlGroupId],
+      status: 'active',
       fields: {
         download_url: downloadUrl,
         purchased_product: leadMagnet.name,
@@ -106,6 +107,7 @@ export async function POST(request: Request) {
     await upsertSubscriber({
       email,
       groups: [resolvedGroupId],
+      status: 'active',
       ...((firstName || lastName) ? {
         fields: {
           ...(firstName ? { name: firstName } : {}),
