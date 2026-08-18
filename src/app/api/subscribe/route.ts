@@ -1,6 +1,5 @@
 import { upsertSubscriber } from '@/lib/mailerlite';
 import { LEAD_MAGNETS } from '@/lib/catalog';
-import { getLeadToken, saveLead } from '@/lib/store';
 import { checkSignupLimits, clientIp } from '@/lib/ratelimit';
 
 export const runtime = 'nodejs';
@@ -52,28 +51,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // Deduplication: return the existing token if they already signed up
-    const existingToken = await getLeadToken(email, slug);
-    if (existingToken) {
-      const siteUrl = process.env.SITE_URL ?? '';
-      return Response.json({
-        downloadUrl: `${siteUrl}/download/${existingToken}`,
-        repeat: true,
-      });
-    }
-
-    const token = crypto.randomUUID();
     const siteUrl = process.env.SITE_URL ?? '';
-    const downloadUrl = `${siteUrl}/download/${token}`;
-
-    await saveLead({
-      token,
-      email,
-      slug,
-      fileKey: leadMagnet.fileKey,
-      label: leadMagnet.name,
-      createdAt: new Date().toISOString(),
-    });
+    const downloadUrl = `${siteUrl}/free-guide/download`;
 
     await upsertSubscriber({
       email,
