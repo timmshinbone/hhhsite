@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Raleway } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import ConditionalSiteChrome from "@/components/ConditionalSiteChrome";
 import "./globals.css";
 
@@ -118,6 +119,7 @@ export default function RootLayout({
         <ConditionalSiteChrome>
           {children}
         </ConditionalSiteChrome>
+        <Analytics />
       </body>
     </html>
   );
