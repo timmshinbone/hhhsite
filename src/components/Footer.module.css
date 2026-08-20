@@ -79,4 +79,6 @@
 
 @media (max-width: 920px) {
   .footTop { grid-template-columns: 1fr; gap: 36px; }
+  .footNav a { min-height: 44px; display: flex; align-items: center; }
+  .footSocial a { min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
 }

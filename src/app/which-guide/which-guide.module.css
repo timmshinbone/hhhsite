@@ -207,6 +207,13 @@
 @media (max-width: 680px) {
   .entryMedia { border-width: 3px; }
   .resultCard { padding: 28px 24px; }
+  .progressTrack { height: 5px; }
+  .back { min-height: 44px; padding: 12px 16px; }
+}
+@media (max-width: 480px) {
+  .stage { padding-top: clamp(24px, 4vh, 48px); padding-bottom: clamp(24px, 4vh, 48px); }
+  .opt { padding: 14px 18px; font-size: 16px; }
+  .optList { gap: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .stageInner, .quizBody, .opt { animation: none !important; }

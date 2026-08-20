@@ -303,6 +303,23 @@
   .cartCover { border-width: 3px; }
   .statcard { padding: 28px 24px; }
   .offer { padding: 28px 24px; }
+  .progressTrack { height: 5px; }
+  .back { min-height: 44px; padding: 12px 16px; }
+  .btnApricot {
+    white-space: normal;
+    text-align: center;
+    max-width: 100%;
+    word-break: break-word;
+    letter-spacing: .06em;
+    padding-left: 24px;
+    padding-right: 24px;
+    justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .stage { padding-top: clamp(24px, 4vh, 48px); padding-bottom: clamp(24px, 4vh, 48px); }
+  .opt { padding: 14px 18px; font-size: 16px; }
+  .optList { gap: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .stageInner, .quizBody, .opt { animation: none !important; }

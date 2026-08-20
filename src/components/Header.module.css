@@ -134,6 +134,7 @@
     font-size: 11px;
     padding: 10px 16px;
     letter-spacing: .12em;
+    min-height: 44px;
   }
   .subNavInner {
     justify-content: space-between;

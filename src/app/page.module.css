@@ -150,7 +150,7 @@
 
 @media (max-width: 680px) {
   .heroGrid { padding: 56px 24px 64px; }
-  .heroCta :global(.btn) { flex: 1; }
+  .heroCta { flex-direction: column; align-items: stretch; }
   .heroImgWrap, .productImgWrap, .coupleImgWrap { border-width: 3px; }
   .trustItem {
     padding: 14px 24px;
@@ -162,10 +162,6 @@
     border-right: none;
     border-bottom: 1px solid var(--line);
   }
-}
-
-@media (max-width: 480px) {
-  .heroCta :global(.btn) { flex: 1 1 100%; }
 }
 
 /* ============ TOP BANNER ============ */
